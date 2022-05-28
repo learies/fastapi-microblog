@@ -1,3 +1,4 @@
+import email
 from sqlalchemy.orm import Session
 
 from .models import User
@@ -20,6 +21,7 @@ def get_user_by_username(db: Session, username: str):
 def create_user(db: Session, user: UserCreate) -> User:
     db_user = User(
         username=user.username,
+        email=user.email,
         hashed_password=get_password_hash(user.password),
     )
     db.add(db_user)
