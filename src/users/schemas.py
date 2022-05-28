@@ -11,7 +11,6 @@ class UserBase(BaseModel):
 class UserBaseInDB(UserBase):
     username: str
     email: EmailStr
-    is_active: bool
 
 
 class UserCreate(UserBaseInDB):
@@ -24,4 +23,4 @@ class UserInDB(UserBaseInDB):
 
 
 class User(UserBaseInDB):
-    pass
+    is_active: bool
