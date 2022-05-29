@@ -28,7 +28,7 @@ def get_user(user_id: int, db: Session = Depends(get_db)) -> User:
 
 
 @router.post(
-    '/users/', response_model=User, status_code=status.HTTP_201_CREATED
+    '/auth/signup/', response_model=User, status_code=status.HTTP_201_CREATED
 )
 def post_user(user: UserCreate, db: Session = Depends(get_db)) -> User:
     if get_user_by_username(db, user.username):
